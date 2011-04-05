@@ -10,14 +10,14 @@ Disclaimer
 The only testing this has received has been on 
 [SFN](http://www.scienceforums.net), and so I cannot guarantee it will work 
 everywhere. I have only tested it on IPB 3.1. This may break your board or 
-cause other weird problems, including possibly data loss. You’ve been warned.
+cause other weird problems, including possibly data loss. You've been warned.
 
 Features
 --------
 
 Lots! ipbLatex supports:
 
-- Normal display math — the $$ math $$ environment in LaTeX.
+- Normal display math -- the $$ math $$ environment in LaTeX.
 - Inline math, as in the $math$ environment.
 - Chemistry, using mhchem.
 - PNG and GIF output.
@@ -27,14 +27,14 @@ Lots! ipbLatex supports:
 - As many LaTeX packages as you want to use
 
 There is experimental support for PGF, but it is not enabled and incomplete, so 
-you’d have to finish it yourself. (Patches accepted!)
+you'd have to finish it yourself. (Patches accepted!)
 
 Requirements
 ------------
 
-Stolen from Dave’s vbLatex documentation:
+Stolen from Dave's vbLatex documentation:
 
-- A working distribution of LaTeX. This kind of goes without saying – if you’re 
+- A working distribution of LaTeX. This kind of goes without saying; if you're 
   using Linux, look into the TeXlive distribution.
 - You absolutely must have a copy of dvipng installed. This plugin will not work
   without it.
@@ -45,7 +45,7 @@ Stolen from Dave’s vbLatex documentation:
   file in the tmp directory (see below) or install the package properly. It is
   not bundled with ipbLatex by default (although this may change in the future).
 - mogrify is recommended for prettier images. If you do not have mogrify, be sure
-  to set `resample` to FALSE as instructed in the configuration. You’ll want to 
+  to set `resample` to FALSE as instructed in the configuration. You'll want to 
   change `density` and `gamma` to the recommended values in the comment above if
   you cannot use mogrify.
 
@@ -71,20 +71,20 @@ Installation
   `/admin/sources/classes/bbcode/custom` directory of your IP.Board installation.
 - Open `templates.txt`. To enable the LaTeX popup feature, which allows your 
   users to see the LaTeX code that generated a formula by clicking it, you need 
-  to edit your default templates. You’ll have to do this for every style you have
+  to edit your default templates. You'll have to do this for every style you have
   installed. Simply follow the directions in `templates.txt`.
 - Head to your administration panel, to Look & Feel -> BBCode Management. Scroll 
   to the bottom, at Import New BBCodes. Browse and select the `bbcode.xml` file 
   that came with the plugin. Install it.
-- That’s it!
+- That's it!
 
 By default, the plugin uses the [latex] and [math] tags as synonyms, with [imath]
 and [ce] representing inline math and chemical equations, respectively. You can 
-add additional synonyms as aliases in IPB’s BBCode editor, but note that [imath]
-and [ce] are hardcoded, and they won’t work if you change the aliases for those.
+add additional synonyms as aliases in IPB's BBCode editor, but note that [imath]
+and [ce] are hardcoded, and they won't work if you change the aliases for those.
 
 With ipbLatex installed, you should be able to use LaTeX anywhere that BBCode can
-be used — personal messages, in the forums, and wherever. All images are stored 
+be used -- personal messages, in the forums, and wherever. All images are stored 
 in the `img` directory you create for all time, so you may wish to periodically 
 cull that directory. (If a user previews their post, then changes an equation 
 before posting it, the old equation will remain for all time.) At SFN we commonly
@@ -99,8 +99,8 @@ packages are loaded, as well as color and slashed.
 Support?
 --------
 
-I’m a student, so I don’t have the time to officially support this. Email me at 
-alex at scienceforums dot net, and I’ll try to get back to you. No guarantees — 
+I'm a student, so I don't have the time to officially support this. Email me at 
+alex at scienceforums dot net, and I'll try to get back to you. No guarantees --
 I have a finite amount of spare time.
 
 Remember: The img and tmp directories you create in step 1 must be writable by 
