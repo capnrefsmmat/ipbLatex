@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bbcodeexport>
+  <bbcodegroup>
+    <bbcode>
+      <bbcode_id>55</bbcode_id>
+      <bbcode_title>LaTeX</bbcode_title>
+      <bbcode_desc>Use LaTeX mathematics in posts.</bbcode_desc>
+      <bbcode_tag>latex</bbcode_tag>
+      <bbcode_replace/>
+      <bbcode_useoption>0</bbcode_useoption>
+      <bbcode_example><![CDATA[[latex]y = \\sqrt{4x^2}[/latex]]]></bbcode_example>
+      <bbcode_switch_option>0</bbcode_switch_option>
+      <bbcode_menu_option_text/>
+      <bbcode_menu_content_text>LaTeX code</bbcode_menu_content_text>
+      <bbcode_single_tag>0</bbcode_single_tag>
+      <bbcode_groups>all</bbcode_groups>
+      <bbcode_sections>all</bbcode_sections>
+      <bbcode_php_plugin>ipbLatex.php</bbcode_php_plugin>
+      <bbcode_parse>2</bbcode_parse>
+      <bbcode_no_parsing>1</bbcode_no_parsing>
+      <bbcode_protected>0</bbcode_protected>
+      <bbcode_aliases>math,ce,imath,pgf</bbcode_aliases>
+      <bbcode_optional_option>0</bbcode_optional_option>
+      <bbcode_image/>
+      <bbcode_strip_search>0</bbcode_strip_search>
+      <bbcode_app>core</bbcode_app>
+      <bbcode_custom_regex/>
+    </bbcode>
+  </bbcodegroup>
+</bbcodeexport>
