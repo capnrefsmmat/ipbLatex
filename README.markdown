@@ -52,8 +52,8 @@ Stolen from Dave’s vbLatex documentation:
 Download It
 -----------
 
-The .tar.gz is available here, under the LGPLv2. License terms are included in 
-the download.
+The package is available under Downloads on GitHub, under the LGPLv2. 
+License terms are included in the download.
 
 Installation
 ------------
