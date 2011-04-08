@@ -1,6 +1,6 @@
 <?php
 /**
- * IPB LaTeX plugin. Requires writable directories in which to write its images.
+ * IPB LaTeX plugin. Requires writable directories in which to write its images
  * Author: Alex Reinhart
  */
 require_once 'class.latex-vb.php';
@@ -28,14 +28,16 @@ class bbcode_latex extends bbcode_parent_class implements bbcodePlugin
 				default: $this->_latexMode = LATEX_INPUT_NORM;
 			}
 			$this->curTagType = $_tag;
-			$txt = preg_replace_callback("/\[{$_tag}\](.*)\[\/{$_tag}\]/is", array(&$this, '_createImg'), $txt);
+			$txt = preg_replace_callback("/\[{$_tag}\](.*)\[\/{$_tag}\]/is", 
+			                             array(&$this, '_createImg'), $txt);
 		}
 		return $txt;
 	}
 
 	protected function _createImg($toTex)
 	{
-		$find = array("&#092;", "&amp;", "<br />", "&lt;", "&gt;", "&quot;", "&#39;");
+		$find = array("&#092;", "&amp;", "<br />", "&lt;", "&gt;", "&quot;", 
+		              "&#39;");
 		$replace = array("\\", "&", "", "<", ">", '"', "'");
 		$formula_text = str_replace($find, $replace, $toTex[1]);
                 
@@ -43,9 +45,10 @@ class bbcode_latex extends bbcode_parent_class implements bbcodePlugin
 		$img = $latex->renderLatex($formula_text);
 		
 		if (substr($img, 0, 7) == 'Error: ')
-			return '[<strong>LaTeX Error:</strong> '.substr($img, 7).']';
+			return '[<strong>LaTeX Error:</strong> ' . substr($img, 7) . ']';
                 
-		return "<img src='$img' class=\"tex tex_" . $this->curTagType . "\" alt=\"" . addslashes(htmlentities($formula_text)) . "\" />";
+		return '<img src="' .$img . '" class="tex tex_' . $this->curTagType . 
+		       '" alt="' . htmlentities($formula_text) . '" />';
 	}
 }
 ?>
