@@ -9,7 +9,7 @@
 define('LATEX_INPUT_NORM', 1);          // Normal 'displaymath' environment
 define('LATEX_INPUT_INLINE', 2);        // For inline text
 define('LATEX_INPUT_CHEM', 3);          // Chemical equations (requires mhchem)
-define('LATEX_INPUT_PGF', 4);			// PGF pictures.
+define('LATEX_INPUT_PGF', 4);		// PGF pictures.
 
 // Output environments:
 define('LATEX_OUTPUT_PNG', 'png');
@@ -68,14 +68,16 @@ class Latex {
 	
 	/*
 	 * dvipng options:
-	 *    'background': You can either choose transparent for a transparent background, or
-	 *                  a colour. The format of the colour must be 'rgb 1.0 0.0 0.0'; for 
-	 *                  example, this defines red. See the example below.
+	 *    'background': You can either choose transparent for a transparent
+     *                  background, or a colour. The format of the colour must
+     *                  be 'rgb 1.0 0.0 0.0'; for example, this defines red. See
+     *                  the example below.
 	 *    'foreground': Not implemented yet.
-	 *    'density': Density to render image at. 100 is about right for most applications.
+	 *    'density': Density to render image at. 100 is about right for most 
+     *               applications.
 	 *    'gamma': Apply gamma to image - 1.0 to leave untouched.
-	 *    'resample': Use mogrify to resample this image. This ends up improving image quality
-	 *                by better anti-aliasing lines.
+     *    'resample': Use mogrify to resample this image. This ends up improving
+     *                image quality by better anti-aliasing lines.
 	 */
 	var $dvipng = array(
 		'background'	=> 'Transparent',
@@ -83,7 +85,7 @@ class Latex {
 		'foreground'	=> false,
 		'density'	=> '300',
 		'gamma'		=> '2.0',
-		'resample'	=> '130' // set this to FALSE if you do not have mogrify
+		'resample'	=> '130'
 	);
 	
 	/********* Security Options **********/
