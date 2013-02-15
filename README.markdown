@@ -9,7 +9,7 @@ Disclaimer
 
 The only testing this has received has been on 
 [SFN](http://www.scienceforums.net), and so I cannot guarantee it will work 
-everywhere. I have only tested it on IPB 3.1. This may break your board or 
+everywhere. I have only tested it on IPB 3.1+. This may break your board or 
 cause other weird problems, including possibly data loss. You've been warned.
 
 Features
@@ -69,7 +69,8 @@ Installation
   in all required sections. Make sure your paths are correct and agree with 
   step 1.
 - Upload the `class.latex.php` and `ipbLatex.php` files to the 
-  `/admin/sources/classes/bbcode/custom` directory of your IP.Board 
+  `/admin/sources/classes/bbcode/custom` (IPB 3.0-3.3) or
+  `/admin/sources/classes/text/parser/bbcode` (IPB 3.4) directory of your IP.Board 
   installation.
 - Open `templates.txt`. To enable the LaTeX popup feature, which allows your 
   users to see the LaTeX code that generated a formula by clicking it, you need 
