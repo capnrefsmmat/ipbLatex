@@ -19,7 +19,7 @@
       <bbcode_parse>2</bbcode_parse>
       <bbcode_no_parsing>1</bbcode_no_parsing>
       <bbcode_protected>0</bbcode_protected>
-      <bbcode_aliases>math,ce,imath,pgf</bbcode_aliases>
+      <bbcode_aliases></bbcode_aliases>
       <bbcode_optional_option>0</bbcode_optional_option>
       <bbcode_image/>
       <bbcode_strip_search>0</bbcode_strip_search>

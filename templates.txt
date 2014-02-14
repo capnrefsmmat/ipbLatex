@@ -1,29 +1,18 @@
----------------------------------------------
-INSERT BEFORE </head> IN YOUR globalTemplate:
----------------------------------------------
+--------------------------------------------------------------------------
+INSERT BEFORE </head> IN YOUR globalTemplate (CHANGE PATH AS APPROPRIATE):
+--------------------------------------------------------------------------
 
-<script type='text/javascript'>
+<script>
     latexPopup = function(e)
     {
-        Event.stop(e)
-        if (e.findElement().hasClassName('tex_ce'))
-        {
-            $('latexCode').innerHTML = "[ce]\n" + e.findElement().alt + "\n[/ce]";
-        }
-        else if(e.findElement().hasClassName('tex_imath'))
-        {
-            $('latexCode').innerHTML = "[imath]\n" + e.findElement().alt + "\n[/imath]";
-        }
-        else
-        {
-            $('latexCode').innerHTML = "[math]\n" + e.findElement().alt + "\n[/math]";
-        }
+        Event.stop(e);
+        $('latexCode').innerHTML = "[latex]\n" + e.findElement().alt + "\n[/latex]";
 
         popup = new ipb.Popup('latexPopup', { type: 'balloon', modal: false, w: '500px', h: '500px', initial: $('latexPopup').innerHTML, hideAtStart: false, close: 'a[rel="close"]', attach: e, stem: true }, {afterHide: function(pop){observeTex() },});
     }
 
     observeTex = function() {
-        $$(".tex").each(function(element) {
+        $$("img[src^='/latex/img/']").each(function(element) {
             element.observe('click', latexPopup)
         });
     }
@@ -37,19 +26,22 @@ INSERT AFTER YOUR <body> TAG (CHANGE LINK AS APPROPRIATE):
 
 <div id="latexPopup" style="display:none;">
     <div class="userpopup">
-        <h3>LaTeX Code</h3>
+        <h3>Kod LaTeX</h3>
         <div>
             <p>This equation was made with the following code:</p><br/>
             <div id="latexCode" style="white-space: pre-wrap; font-family: monospace;"></div><br/>
-            <p>A <a href="/topic/3751-quick-latex-tutorial/">LaTeX tutorial</a> is available.</p>
+            <p>Online LaTeX editor: <a href=http://www.codecogs.com/latex/eqneditor.php>CodeCogs.com/latex/eqneditor.php</a></p>
         </div>
     </div>
 </div>
 
--------------------------------
-INSERT INTO YOUR ipb_styles.css
--------------------------------
+-------------------------------------------------------------
+INSERT INTO YOUR ipb_styles.css (CHANGE PATH AS APPROPRIATE):
+-------------------------------------------------------------
 
-img.tex {
+div#latexPopup_popup.popupWrapper>div#latexPopup_inner.popupInner>div.userpopup>div {
+	margin: 10px;
+}
+img[src^="/latex/img/"]{
 	cursor: pointer;
 }
