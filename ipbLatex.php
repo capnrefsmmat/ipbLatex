@@ -42,8 +42,8 @@ class bbcode_plugin_latex extends bbcode_parent_main_class
     protected function _createImg($toTex)
     {
         $find = array("&#092;", "&amp;", "<br />", "&lt;", "&gt;", 
-                      "&quot;", "&#39;", "&#33;", '<p>', '</p>');
-        $replace = array("\\", "&", "", "<", ">", '"', "'", "!", "", "");
+                      "&quot;", "&#39;", "&#33;", '<p>', '</p>', "&#91;", "&nbsp;");
+        $replace = array("\\", "&", "", "<", ">", '"', "'", "!", "", "", "[", " ");
         $formula_text = str_replace($find, $replace, $toTex[1]);
                 
         $latex = new Latex($this->_latexMode);

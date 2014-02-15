@@ -42,12 +42,12 @@ class Latex {
    */
   var $path = array(
     // Applications
-    'latex'   => '/opt/local/bin/latex',
-    'dvipng'  => '/opt/local/bin/dvipng',
-    'mogrify' => '/opt/local/bin/mogrify',
-    'convert' => '/opt/local/bin/convert',
+    'latex'   => '/usr/bin/latex',
+    'dvipng'  => '/usr/bin/dvipng',
+    'mogrify' => '/usr/bin/mogrify',
+    'convert' => '/usr/bin/convert',
     // Base directory
-    'base'    => '/Users/dave/work/tmp/vblatex',
+    'base'    => '/www/pandora.xyloid.org/html/latex',
     'baseurl' => '/latex'
   );
 
