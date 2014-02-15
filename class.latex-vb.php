@@ -209,13 +209,18 @@ class Latex {
     if ($this->image_dim[$this->method] != NULL && ($imageinfo[0] > $this->image_dim[$this->method][0] || $imageinfo[1] > $this->image_dim[$this->method][1]))
       return $this->error(LATEX_ERROR_TOOBIG, $imageinfo[0].'x'.$imageinfo[1], true);
 
-    $copy = @copy($filename, $path['img'].'/'.$filename);
+    // Create an appropriate subdirectory structure for hash.
+    $d1 = substr($this->md5hash, 0, 1);
+    $d2 = substr($this->md5hash, 0, 1);
+    @mkdir($path['img'].'/'.$d1.'/'.$d2, 0777, true);
+
+    $copy = @copy($filename, $path['img'].'/'.$d1.'/'.$d2'/'.$filename);
 
     if (!$copy)
       return $this->error(LATEX_ERROR_COPY, '', true);
 
     if ($this->display['retina']) {
-      $copy = @copy($filename_retina, $path['img'].'/'.$filename_retina);
+      $copy = @copy($filename_retina, $path['img'].'/'.$d1.'/'.$d2'/'.$filename_retina);
 
       if (!$copy)
         return $this->error(LATEX_ERROR_COPY, '', true);
@@ -225,7 +230,7 @@ class Latex {
 
     chdir($this->currentdir);
 
-    return $this->path['baseurl']."/img/".$filename;
+    return $this->path['baseurl']."/img/".$d1.'/'.$d2.$filename;
   }
 
   function wrapFormula($latexstring)
@@ -313,7 +318,6 @@ class Latex {
 
   function cleanTmpDir()
   {
-    /*
     @unlink($this->path['tmp'].'/'.$this->tmp_filename.'.tex');
     @unlink($this->path['tmp'].'/'.$this->tmp_filename.'.aux');
     @unlink($this->path['tmp'].'/'.$this->tmp_filename.'.log');
@@ -322,7 +326,6 @@ class Latex {
     @unlink($this->path['tmp'].'/'.$this->tmp_filename.'.'.$this->display['format']);
     @unlink($this->path['tmp'].'/'.$this->md5hash.'-'.$this->method.'.'.$this->display['format']);
     @unlink($this->path['tmp'].'/'.$this->md5hash.'-'.$this->method.'@2x.'.$this->display['format']);
-    */
   }
 }
 
