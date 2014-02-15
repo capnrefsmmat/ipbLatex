@@ -158,10 +158,13 @@ class Latex {
     if (!is_writeable($path['tmp']) || !is_writeable($path['img']))
       return $this->error(LATEX_ERROR_NOPERM, '');
 
-    // Check whether this thing already exists
-    if (is_file($path['img'].'/'.$filename)) {
-      //@touch($path['img'].'/'.$filename);
-      return $this->path['baseurl']."/img/".$filename;
+    $d1 = substr($this->md5hash, 0, 1);
+    $d2 = substr($this->md5hash, 1, 1);
+    $imgpath = $path['img'].'/'.$d1.'/'.$d2.'/';
+    
+    // Check whether this image already exists
+    if (is_file($imgpath.$filename)) {
+      return $this->path['baseurl']."/img/".$d1."/".$d2."/".$filename;
     }
 
     // Do security checks
@@ -210,17 +213,14 @@ class Latex {
       return $this->error(LATEX_ERROR_TOOBIG, $imageinfo[0].'x'.$imageinfo[1], true);
 
     // Create an appropriate subdirectory structure for hash.
-    $d1 = substr($this->md5hash, 0, 1);
-    $d2 = substr($this->md5hash, 0, 1);
     @mkdir($path['img'].'/'.$d1.'/'.$d2, 0777, true);
-
-    $copy = @copy($filename, $path['img'].'/'.$d1.'/'.$d2'/'.$filename);
+    $copy = @copy($filename, $imgpath.$filename);
 
     if (!$copy)
       return $this->error(LATEX_ERROR_COPY, '', true);
 
     if ($this->display['retina']) {
-      $copy = @copy($filename_retina, $path['img'].'/'.$d1.'/'.$d2'/'.$filename_retina);
+      $copy = @copy($filename_retina, $imgpath.$filename_retina);
 
       if (!$copy)
         return $this->error(LATEX_ERROR_COPY, '', true);
@@ -230,7 +230,7 @@ class Latex {
 
     chdir($this->currentdir);
 
-    return $this->path['baseurl']."/img/".$d1.'/'.$d2.$filename;
+    return $this->path['baseurl']."/img/".$d1.'/'.$d2.'/'.$filename;
   }
 
   function wrapFormula($latexstring)
