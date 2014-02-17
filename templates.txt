@@ -1,5 +1,6 @@
 --------------------------------------------------------------------------
 INSERT BEFORE </head> IN YOUR globalTemplate (CHANGE PATH AS APPROPRIATE):
+REMEMBER TO ALSO CHANGE PATH FOR SRCSET SCRIPT.
 --------------------------------------------------------------------------
 
 <script>
@@ -19,7 +20,7 @@ INSERT BEFORE </head> IN YOUR globalTemplate (CHANGE PATH AS APPROPRIATE):
 
     document.observe("dom:loaded", observeTex);
 </script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/retina.js/1.0.1/retina.js"></script>
+<script src="/path/to/img.srcset.min.js"></script>
 
 ----------------------------------------------------------
 INSERT AFTER YOUR <body> TAG (CHANGE LINK AS APPROPRIATE):

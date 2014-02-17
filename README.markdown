@@ -25,6 +25,7 @@ Lots! ipbLatex supports:
   to find out how a LaTeX equation was made so they can type their own
 - Caching of every equation
 - As many LaTeX packages as you want to use
+- Generation of retina images for HiDPI displays.
 
 There is experimental support for PGF, but it is not enabled and incomplete, so 
 you'd have to finish it yourself. (Patches accepted!)
@@ -49,6 +50,7 @@ Stolen from Dave's vbLatex documentation:
   sure to set `resample` to FALSE as instructed in the configuration. You'll 
   want to change `density` and `gamma` to the recommended values in the comment 
   above if you cannot use mogrify.
+- Retina image support requires both mogrify and convert commands.
 
 Download It
 -----------
@@ -72,6 +74,7 @@ Installation
   `/admin/sources/classes/bbcode/custom` (IPB 3.0-3.3) or
   `/admin/sources/classes/text/parser/bbcode` (IPB 3.4) directory of your IP.Board 
   installation.
+- Upload `img.srcset.min.js` to a web-accessible location.
 - Open `templates.txt`. To enable the LaTeX popup feature, which allows your 
   users to see the LaTeX code that generated a formula by clicking it, you need 
   to edit your default templates. You'll have to do this for every style you 
