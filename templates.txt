@@ -28,7 +28,7 @@ INSERT AFTER YOUR <body> TAG (CHANGE LINK AS APPROPRIATE):
 
 <div id="latexPopup" style="display:none;">
     <div class="userpopup">
-        <h3>Kod LaTeX</h3>
+        <h3>LaTeX Code</h3>
         <div>
             <p>This equation was made with the following code:</p><br/>
             <div id="latexCode" style="white-space: pre-wrap; font-family: monospace;"></div><br/>
@@ -42,8 +42,11 @@ INSERT INTO YOUR ipb_styles.css (CHANGE PATH AS APPROPRIATE):
 -------------------------------------------------------------
 
 div#latexPopup_popup.popupWrapper>div#latexPopup_inner.popupInner>div.userpopup>div {
-	margin: 10px;
+        margin: 10px;
+}
+div#latexPopup_popup.popupWrapper>div#latexPopup_inner.popupInner>div.userpopup>h3 {
+        padding-left: 10px;
 }
 img[src^="/latex/img/"]{
-	cursor: pointer;
+        cursor: pointer;
 }
