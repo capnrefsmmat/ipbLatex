@@ -47,7 +47,7 @@ class Latex {
     'mogrify' => '/usr/bin/mogrify',
     'convert' => '/usr/bin/convert',
     // Base directory
-    'base'    => '/www/pandora.xyloid.org/html/latex',
+    'base'    => '/www/scienceforums.net/html/latex',
     'baseurl' => '/latex'
   );
 
@@ -161,10 +161,17 @@ class Latex {
     $d1 = substr($this->md5hash, 0, 1);
     $d2 = substr($this->md5hash, 1, 1);
     $imgpath = $path['img'].'/'.$d1.'/'.$d2.'/';
-    
+
     // Check whether this image already exists
     if (is_file($imgpath.$filename)) {
-      return $this->path['baseurl']."/img/".$d1."/".$d2."/".$filename;
+      $imageinfo = @getimagesize($imgpath.$filename);
+      $url = $this->path['baseurl']."/img/".$d1."/".$d2."/".$filename;
+      $tmparr = array(array($url), $imageinfo[0], $imageinfo[1]);
+      if ($this->display['retina'])
+      {
+        array_push($tmparr[0], $this->path['baseurl']."/img/".$d1."/".$d2."/".$filename_retina);
+      }
+      return $tmparr;
     }
 
     // Do security checks
@@ -230,7 +237,13 @@ class Latex {
 
     chdir($this->currentdir);
 
-    return $this->path['baseurl']."/img/".$d1.'/'.$d2.'/'.$filename;
+    $tmparr = array(array($this->path['baseurl']."/img/".$d1.'/'.$d2.'/'.$filename), $imageinfo[0], $imageinfo[1]);
+
+    if ($this->display['retina']) {
+      array_push($tmparr[0], $this->path['baseurl']."/img/".$d1.'/'.$d2.'/'.$filename_retina);
+    }
+
+    return $tmparr;
   }
 
   function wrapFormula($latexstring)

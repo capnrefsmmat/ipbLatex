@@ -45,15 +45,20 @@ class bbcode_plugin_latex extends bbcode_parent_main_class
                       "&quot;", "&#39;", "&#33;", '<p>', '</p>', "&#91;", "&nbsp;");
         $replace = array("\\", "&", "", "<", ">", '"', "'", "!", "", "", "[", " ");
         $formula_text = str_replace($find, $replace, $toTex[1]);
-                
+
         $latex = new Latex($this->_latexMode);
         $img = $latex->renderLatex($formula_text);
-        
-        if (substr($img, 0, 7) == 'Error: ')
-            return '[<strong>LaTeX Error:</strong> '.substr($img, 7).']';
 
-        return "<img src='$img' class=\"tex tex_" . $this->curTagType . 
-          "\" alt=\"" . htmlentities($formula_text) . "\" />";
+        if (is_array($img)) {
+            $imgsrc = "<img src=\"".$img[0][0]."\" width=\"".$img[1]."\" height=\"".$img[2]."\" alt=\"" . htmlentities($formula_text) . "\"";
+            if (count($img[0]) == 2)
+            {
+                $imgsrc .= " srcset=\"".$img[0][1]." 2x\"";
+            }
+            return $imgsrc." />";
+        } else {
+            return '[<strong>LaTeX Error:</strong> '.substr($img, 7).']';
+        }
     }
 }
 ?>
